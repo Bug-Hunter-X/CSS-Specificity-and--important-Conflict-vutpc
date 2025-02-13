@@ -1,0 +1,19 @@
+The most robust solution is to avoid using `!important` whenever possible.  Refactoring your CSS to rely on proper specificity rules is usually a better long-term strategy.  However, if `!important` is unavoidable, careful consideration of specificity is crucial.
+
+The problem can be solved by either removing the `!important` declaration or changing the order of CSS rules. The order matters when specificity is equal. 
+
+```css
+.parent {
+  color: blue;
+}
+
+.parent .child {
+  color: green;
+}
+
+.child {
+  color: red;
+}
+```
+
+In this corrected CSS, the `.parent .child` selector, being more specific, will always take precedence, regardless of the order.
