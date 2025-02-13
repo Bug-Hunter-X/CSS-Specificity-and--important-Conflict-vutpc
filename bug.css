@@ -1,0 +1,21 @@
+The following CSS code snippet demonstrates an uncommon error related to specificity and inheritance:
+
+```css
+.parent {
+  color: blue;
+}
+
+.child {
+  color: red !important;
+}
+
+.parent .child {
+  color: green;
+}
+
+<div class="parent">
+  <span class="child"></span>
+</div>
+```
+
+The `!important` declaration in the `.child` class overrides the `color: blue` from the `.parent` class. However, the more specific selector `.parent .child` should override the `.child` selector because of its higher specificity. But it does not override the `!important` rule.  The expected color for the span is green, but the actual color will be red.
